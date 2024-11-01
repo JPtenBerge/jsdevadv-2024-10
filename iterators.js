@@ -32,10 +32,36 @@ for (let item of jp) {
 // HTTP-servertje
 // for await (let conn of server.connections) {}
 
+// genereert op een iterator
+function* gen() {
+    console.log('eerste');
+    yield 4;
+    console.log('tweede');
+    yield 8;
+    console.log('derde');
+    yield 15;
+    console.log('vierde');
+    yield 16;
+    console.log('vijfde');
+    yield 23;
+    console.log('zesde');
+    yield 42;
+}
+// for(let item of gen()) {
+//     console.log('gen item:', item);
+// }
 
+let source = gen();
+console.log(source.next());
+console.log(source.next());
+console.log(source.next());
+console.log(source.next());
+console.log(source.next());
+console.log(source.next());
+console.log(source.next());
 
-// C# en C
-// malloc() en new
-// malloc struct
-// - new roept de constructor aan
-// free()
+function* traverseNode(node) {
+    yield* node.left;
+    yield node.value;
+    yield* node.right;
+}
